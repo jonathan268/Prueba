@@ -14,7 +14,18 @@ export class AppComponent {
   };
 
   personas = [
-    
+    {
+      nombre: "juan",
+      apellido: "zapata",
+      email: "juanZapara@gmail.com",
+      direccion: "cra 2 39-45"
+    },
+    {
+      nombre: "sarah",
+      apellido: "gomez",
+      email: "sarah@gmail.com",
+      direccion: "cra 8 #3-57"
+    }
   ];
 
   get personasEnLista(){
