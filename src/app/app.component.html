@@ -18,63 +18,78 @@
         </div>
       </nav>
 
-
       <div class="row">
-         <form class="col s12">
-
-           <div class="row">
-             <div class="input-field col s6">
-               <input id="nombre" type="text" class="validate">
-               <label for="nombre">Nombre</label>
-             </div>
-             <div class="input-field col s6">
-               <input id="apellido" type="text" class="validate">
-               <label for="apellido">Apellido</label>
-             </div>
-           </div>
-
-           <div class="row">
+        <form class="col s12">
+          <div class="row">
             <div class="input-field col s6">
-              <input id="email" type="text" class="validate">
-              <label for="email">Email</label>
+              <input id="nom" [(ngModel)]="nombre" type="text" class="validate"  />
+              <label for="nom">Nombre</label>
             </div>
             <div class="input-field col s6">
-              <input id="direccion" type="text" class="validate">
-              <label for="direccion">Direccion</label>
+              <input id="ape" [(ngModel)]="apellido" type="text" class="validate" />
+              <label for="ape">Apellido</label>
             </div>
           </div>
 
-         </form>
-       </div>
-    
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="ema" [(ngModel)]="email" type="text" class="validate" />
+              <label for="ema">Email</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="dir" [(ngModel)]="direccion" type="text" class="validate" />
+              <label for="dir">Direccion</label>
+            </div>
+          </div>
+        </form>
+      </div>
 
-    <table *ngIf="personasEnLista>0; else noData">
-      <thead>
-        <tr>
+      <div class="row">
+        <div class="input-field col s3">
+          <button
+            class="btn waves-effect waves-light"
+            type="button" (click)="guardarDatos()"
+            name="action"
+          >
+            Enviar
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+        <div class="input-field col s3">
+          <button
+            class="btn waves-effect red darken-1"
+            type="submit"
+            name="action"
+          >
+            Cancelar
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+
+      <table *ngIf="personasEnLista > 0; else noData">
+        <thead>
+          <tr>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Email</th>
             <th>Direccion</th>
-        </tr>
-      </thead>
+          </tr>
+        </thead>
 
-      <tbody >
-        <tr *ngFor="let p of personas">
-          <td>{{p.nombre}}</td>
-          <td>{{p.apellido}}</td>
-          <td>{{p.email}}</td>
-          <td>{{p.direccion}}</td>
-        </tr>
-       
-      </tbody>
-    </table>
+        <tbody>
+          <tr *ngFor="let p of personas">
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.apellido }}</td>
+            <td>{{ p.email }}</td>
+            <td>{{ p.direccion }}</td>
+          </tr>
+        </tbody>
+      </table>
 
-   <ng-template #noData>
-      <strong class="center">"No hay datos para mostrar!"</strong>
-   </ng-template>    
-
-
-  </div>
-
+      <ng-template #noData>
+        <strong class="center">"No hay datos para mostrar!"</strong>
+      </ng-template>
+    </div>
   </body>
 </html>

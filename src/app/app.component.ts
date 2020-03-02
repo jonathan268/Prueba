@@ -6,29 +6,23 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  persona = {
-    nombre: String = null,
-    apellido: String = null,
-    email: String = null,
-    direccion: String = null
-  };
+  nombre: String = null;
+  apellido: String = null;
+  email: String = null;
+  direccion: String = null;
 
-  personas = [
-    {
-      nombre: "juan",
-      apellido: "zapata",
-      email: "juanZapara@gmail.com",
-      direccion: "cra 2 39-45"
-    },
-    {
-      nombre: "sarah",
-      apellido: "gomez",
-      email: "sarah@gmail.com",
-      direccion: "cra 8 #3-57"
-    }
-  ];
+  personas = [];
+  
+  guardarDatos() {
+    this.personas.push({
+      nombre: this.nombre,
+      apellido: this.apellido,
+      email: this.email,
+      direccion: this.direccion
+    });
+  }
 
-  get personasEnLista(){
+  get personasEnLista() {
     return this.personas.length;
   }
 }
